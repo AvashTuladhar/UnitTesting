@@ -6,9 +6,10 @@ namespace Practise.Services
     public interface IUserServices
     {
         List<User> GetAllUsers();
-        User? GetUserByID(int Id);
+        User? GetUserByID(int id);
         void DeleteUser(User user);
         User CreateUser(User user);
+        User? UpdateUser(User user);
     }
     public class UserServices : IUserServices
     {
@@ -32,9 +33,14 @@ namespace Practise.Services
             return userRepository.GetAllUsers();    
         }
 
-        public User? GetUserByID(int Id)
+        public User? GetUserByID(int id)
         {
-            return userRepository.GetUserByID(Id);  
+            return userRepository.GetUserByID(id);
+        }
+
+        public User? UpdateUser(User user)
+        {
+            return userRepository.UpdateUser(user);
         }
     }
 }
